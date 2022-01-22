@@ -15,14 +15,13 @@ class Solution:
         """
         n= len(nums)
         i=n-2
-        # for i in range(n-2,-1,-1):
         while i>=0:
             if nums[i]<nums[i+1]:
                 break;
             i-=1
     
         if i<0:
-            nums.reverse()
+            self.rev(nums,0)
             return
         for j in range(len(nums)-1,i,-1):
             if nums[j]>nums[i]:
