@@ -10,6 +10,10 @@ class Solution:
         dp[i][j]= self.solve(m,n,dp,i+1,j)+ self.solve(m,n,dp,i,j+1)
         return dp[i][j]
     def uniquePaths(self, m: int, n: int) -> int:
-        dp=[[-1 for i in range(n+1)] for j in range(m+1)]
-        return self.solve(m,n,dp,1,1)
+        @cache
+        def dfs(i, j):
+            if i >= m or j >= n:      return 0
+            if i == m-1 and j == n-1: return 1
+            return dfs(i+1, j) + dfs(i, j+1)
+        return dfs(0, 0)
         
