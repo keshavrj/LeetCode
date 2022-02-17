@@ -26,13 +26,8 @@ public:
         return solve(root->left, subRoot->left) && solve(root->right, subRoot->right);
     }
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
-        if(!root && !subRoot)return true;
-        if(!root || !subRoot)return false;
-       find(root, subRoot);
-        for(auto i:nodes)
-        {
-             if(solve(i, subRoot))return true;
-        }
-        return false;
+        if(!root)return false;
+        if(solve(root, subRoot))return true;
+          return isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
     }
 };
