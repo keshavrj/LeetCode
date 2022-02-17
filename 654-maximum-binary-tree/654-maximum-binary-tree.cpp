@@ -12,10 +12,11 @@
 class Solution {
 public:
     TreeNode* solve(vector<int> &nums, int l, int r){
-        if(l<0 || r>=nums.size() || l>r)return NULL;
-        int mid= max_element(nums.begin()+l, nums.begin()+r+1)-                                 nums.begin();
-        TreeNode *node = new TreeNode(nums[mid],solve(nums, l, mid-                                     1),solve(nums, mid+1, r) );
+        if(l>r)
+            return NULL;
         
+        int mid= max_element(nums.begin()+l, nums.begin()+r+1)-                                 nums.begin();
+        auto node=  new TreeNode(nums[mid],solve(nums, l, mid-                                     1),solve(nums, mid+1, r) );
         return node;
     }
     TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
