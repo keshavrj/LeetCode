@@ -11,14 +11,6 @@
  */
 class Solution {
 public:
-     vector<TreeNode*> nodes;
-    void find(TreeNode* root, TreeNode* subRoot){
-        if(!root )return;
-        if(subRoot->val==root->val)
-            nodes.push_back(root);
-        find(root->left, subRoot);
-        find(root->right, subRoot);
-    }
     bool solve(TreeNode* root, TreeNode* subRoot){
         if(!root && !subRoot)return true;
         if(!root || !subRoot)return false;
