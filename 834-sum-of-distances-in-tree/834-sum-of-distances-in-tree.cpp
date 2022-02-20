@@ -19,7 +19,8 @@ public:
 
     void dfs(int node, int par)
     {
-        res[node]= res[par]- dis[node]- subsize[node] + N - subsize[node] +                     dis[node];
+        // res[node]= res[par]- dis[node]- subsize[node] + N - subsize[node] +                     dis[node];
+        res[node]= res[par]- 2*subsize[node]+ N;
          for(int child:adj[node])
             if(child!=par)dfs(child, node);
     }
