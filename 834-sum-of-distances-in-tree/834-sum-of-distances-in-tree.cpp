@@ -26,8 +26,8 @@ public:
     }
     vector<int> sumOfDistancesInTree(int n, vector<vector<int>>& edges) {
         N=n;
-        for(int i=0;i<N;i++)
-            adj[i].clear();
+        // for(int i=0;i<N;i++)
+        //     adj[i].clear();
         for(int i=0;i<n-1;i++)
         {
             adj[edges[i][0]].push_back(edges[i][1]);
