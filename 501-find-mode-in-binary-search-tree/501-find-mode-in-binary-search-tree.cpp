@@ -11,24 +11,28 @@
  */
 class Solution {
 public:
-    map<int,int> mp;
+    vector<int> ans;
+    int pre_el= INT_MIN, curr_freq=0, max_freq=0;
     void solve(TreeNode* root)
     {
         if(!root)return;
         solve(root->left);
-        mp[root->val]++;
+        if(pre_el == root->val)curr_freq++;
+        else curr_freq=1;
+        if(curr_freq>max_freq)
+        {
+            ans.clear();
+            max_freq= curr_freq;
+            ans.push_back(root->val);
+        }
+        else if(curr_freq==max_freq)
+            ans.push_back(root->val);
+        
+        pre_el= root->val;
         solve(root->right);
     }
     vector<int> findMode(TreeNode* root) {
-        int mx=-1;
-        vector<int> ans;
         solve(root);
-        for(auto i:mp)
-            mx=max(mx,i.second);
-        for(auto i:mp)
-            if(i.second==mx)
-                ans.push_back(i.first);
-        
         return ans;
     }
 };
