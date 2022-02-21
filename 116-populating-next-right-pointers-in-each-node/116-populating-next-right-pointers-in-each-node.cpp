@@ -20,21 +20,29 @@ class Solution {
 public:
     Node* connect(Node* root) {
         if(!root)return NULL;
-        queue<Node*> q;
-        q.push(root);
-        Node *t;
-        while(!q.empty())
-        {
-            for(int i=size(q)-1;i>0;i--)
-            {
-                t= q.front();q.pop();
-                t->next= q.front();
-                if(t->left)q.push(t->left), q.push(t->right);
-            }
-                t= q.front();q.pop();
-                t->next=NULL;
-                if(t->left)q.push(t->left), q.push(t->right);
+//         queue<Node*> q;
+//         q.push(root);
+//         Node *t;
+//         while(!q.empty())
+//         {
+//             for(int i=size(q)-1;i>0;i--)
+//             {
+//                 t= q.front();q.pop();
+//                 t->next= q.front();
+//                 if(t->left)q.push(t->left), q.push(t->right);
+//             }
+//                 t= q.front();q.pop();
+//                 t->next=NULL;
+//                 if(t->left)q.push(t->left), q.push(t->right);
             
+//         }
+        if(root->left)// if child exists;
+        {
+            root->left->next= root->right;
+            if(root->next)
+                root->right->next= root->next->left;
+            connect(root->left);
+            connect(root->right);
         }
         return root;
     }
