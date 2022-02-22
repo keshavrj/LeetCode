@@ -25,6 +25,7 @@ public:
             val+= rob(root->left->left) + rob(root->left->right);
         if(root->right)
             val+= rob(root->right->left)+ rob(root->right->right);
+        //if we exclude the current root;
         int excl= rob(root->left)+rob(root->right);
         val= max(val, excl);
         return mp[root]= val;
