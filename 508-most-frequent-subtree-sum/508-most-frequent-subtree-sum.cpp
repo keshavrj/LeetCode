@@ -14,16 +14,15 @@ public:
     vector<int> ans;
     unordered_map<int, int> mp;
     int max_freq=0;
-    int solve(TreeNode* root, int sm)
+    int solve(TreeNode* root)
     {
         if(!root)return 0;
-        sm=root->val+solve(root->left, sm)+solve(root->right, sm );
+        int sm=root->val+solve(root->left)+solve(root->right);
         max_freq= max(max_freq, ++mp[sm]);
         return sm;
     }
     vector<int> findFrequentTreeSum(TreeNode* root) {
-        int sm=0;
-        solve(root, sm);
+        solve(root);
         for(auto i:mp)
             if(i.second==max_freq)
                 ans.push_back(i.first);
