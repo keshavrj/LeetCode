@@ -11,20 +11,15 @@
  */
 class Solution {
 public:
-    int ans=0;
-    void solve(TreeNode* root, int target)
+    int solve(TreeNode* root, int target)
     {
-        if(!root)return;
+        if(!root)return 0;
         if(target==root->val)
-            ans++;
-        solve(root->left, target-root->val);
-        solve(root->right, target-root->val);
+            return 1+solve(root->left, target-root->val) + solve(root->right, target-root->val);
+        return solve(root->left, target-root->val) + solve(root->right, target-root->val);
     }
     int pathSum(TreeNode* root, int target) {
         if(!root)return 0;
-        solve(root, target);
-        pathSum(root->left, target);
-        pathSum(root->right, target);
-        return ans;
+        return solve(root, target)+pathSum(root->left, target)+pathSum(root->right, target);
     }
 };
