@@ -19,12 +19,14 @@ public:
     int rob(TreeNode* root) {
         if(!root)return 0;
         if(mp[root])return mp[root];
+        //if we include the current Node 
         int val= root->val;
         if(root->left)
             val+= rob(root->left->left) + rob(root->left->right);
         if(root->right)
             val+= rob(root->right->left)+ rob(root->right->right);
-        val= max(val, rob(root->left)+rob(root->right));
+        int excl= rob(root->left)+rob(root->right);
+        val= max(val, excl);
         return mp[root]= val;
     }
 };
