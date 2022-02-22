@@ -18,16 +18,31 @@ public:
         else{
         //case I;
         if(!root->left && !root->right)return NULL;
-        //case II && Case III:
-        if(!root->left || !root->right)
-            return root->left!=NULL ? root->left : root->right;
+        //case II:
+        else if(!root->left)
+        {
+            auto t= root->right;
+            // delete(root);
+            delete(root);
+            return t;
+        }
+        //case III:
+        else if(!root->right)
+        {
+            auto t= root->left;
+            delete(root);
+            return t;
+        }
         // case IV:
-        auto succ= root->right;
-        while(succ->left)
-            succ=succ->left;
-        root->val= succ->val;
-        root->right = deleteNode(root->right,succ->val);
+        else {
+            auto succ= root->right;
+            while(succ && succ->left)
+                succ=succ->left;
+            root->val= succ->val;
+            root->right = deleteNode(root->right,succ->val);
             
+        }
+         
         }
        return root;
         
