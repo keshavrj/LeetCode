@@ -22,6 +22,6 @@ public:
         root->left= sufficientSubset(root->left, limit-root->val);
         root->right= sufficientSubset(root->right, limit-root->val);
     
-        return root->left==root->right?NULL:root;
+        return !root->left && !root->right?NULL:root;
     }
 };
