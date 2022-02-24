@@ -10,34 +10,34 @@
  */
 class Solution {
 public:
-    void mergesort(ListNode **head)
-    {
-        ListNode* curr= *head;
-        ListNode *first, *second;
-        if(!curr || !curr->next)return;
+//     void mergesort(ListNode **head)
+//     {
+//         ListNode* curr= *head;
+//         ListNode *first, *second;
+//         if(!curr || !curr->next)return;
         
-        findMiddle(curr, &first, &second);
-        mergesort(&first);mergesort(&second);
-        *head = merge(first, second);
-    }
-    void findMiddle(ListNode *curr, ListNode **first, ListNode** second)
-    {
+//         findMiddle(curr, &first, &second);
+//         mergesort(&first);mergesort(&second);
+//         *head = merge(first, second);
+//     }
+//     void findMiddle(ListNode *curr, ListNode **first, ListNode** second)
+//     {
         
-        auto slow= curr;
-        auto fast= curr->next;
-        while(fast!=NULL)
-        {
-            fast= fast->next;
-            if(fast){
-                fast= fast->next;
-                slow= slow->next;
-            }
-        }
-        *first= curr;
-        *second= slow->next;
-        slow->next= NULL;
+//         auto slow= curr;
+//         auto fast= curr->next;
+//         while(fast!=NULL)
+//         {
+//             fast= fast->next;
+//             if(fast){
+//                 fast= fast->next;
+//                 slow= slow->next;
+//             }
+//         }
+//         *first= curr;
+//         *second= slow->next;
+//         slow->next= NULL;
         
-    }
+//     }
     ListNode* merge(ListNode *first, ListNode *second)
     {
         ListNode *ans=NULL;
@@ -56,7 +56,15 @@ public:
         return ans;
     }
     ListNode* sortList(ListNode* head) {
-        mergesort(&head);
-        return head;
+        if(!head || !head->next)return head;
+        ListNode* slow= head, *fast= head->next;
+        while(fast && fast->next)
+        {
+            fast= fast->next->next;
+            slow= slow->next;
+        }
+        fast= slow->next;
+        slow->next= NULL;
+        return merge(sortList(head), sortList(fast));
     }
 };
