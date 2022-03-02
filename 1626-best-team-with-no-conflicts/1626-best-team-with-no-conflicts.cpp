@@ -11,7 +11,7 @@ public:
 
             for (int i = 0; i < n; i++) {
                 d[i]= vp[i].second;
-            for (int j = i-1; j >=0; j--) {
+            for (int j = 0; j <i; j++) {
             if (vp[j].second <= vp[i].second )
                 d[i] = max(d[i], d[j] + vp[i].second);
             }
