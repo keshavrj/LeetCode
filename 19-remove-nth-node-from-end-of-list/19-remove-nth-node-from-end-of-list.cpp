@@ -22,10 +22,10 @@ public:
         {
             if(cnt==n-1)
             {
-                auto q= p->next;
-                p->next=q->next;
-                q->next=NULL;
-                delete(q);
+                // auto q= p->next;
+                p->next=p->next->next;
+                // q->next=NULL;
+                // delete(q);
                 return head;
             }
             cnt++;
