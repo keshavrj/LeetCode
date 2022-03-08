@@ -9,11 +9,9 @@ public:
     void solve(vector<string> &v, string s, int m, int n)
     {
         if(m==0 && n==0){
-            v.push_back(s);
-            return;
+            v.push_back(s);return;
         }
-        if(n>0)
-            solve(v,s+"(", m+1, n-1);
+        if(n>0)solve(v,s+"(", m+1, n-1);
         if(m>0)solve(v, s+")", m-1, n);
     }
 };
