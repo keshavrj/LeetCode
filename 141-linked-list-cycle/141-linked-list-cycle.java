@@ -18,7 +18,7 @@ public class Solution {
            
             slow= slow.next; 
             fast= fast.next.next;
-        }while(fast!=slow || slow==null || fast==null);
-        return (slow==null || fast==null) ? false : true;
+        }while(fast!=slow );
+        return true;
     }
 }
