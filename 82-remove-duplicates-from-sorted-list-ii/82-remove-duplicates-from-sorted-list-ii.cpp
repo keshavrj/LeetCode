@@ -23,8 +23,12 @@ public:
                 q=q->next;
                 flag=1;
             }
-            if(!flag)q=q->next, p=p->next;
-            else{
+            
+            if(!flag)
+                q=q->next, p=p->next;
+            
+            else
+            {
                 bool fg=0;
                 if(p->next==head)
                     fg=1;
