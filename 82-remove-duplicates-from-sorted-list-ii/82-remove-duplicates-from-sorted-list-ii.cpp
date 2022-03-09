@@ -13,7 +13,7 @@ public:
     ListNode* deleteDuplicates(ListNode* head) {
         if(!head or !head->next)return head;
         
-        ListNode* p= new ListNode(0, head), *q=head, *start= p->next;
+        ListNode* p= new ListNode(0, head), *q=head;
         // p->next=head;
         while(q)
         {
