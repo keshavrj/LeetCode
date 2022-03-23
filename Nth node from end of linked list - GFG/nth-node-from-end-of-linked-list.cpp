@@ -63,8 +63,7 @@ int main()
 int getNthFromLast(Node *head, int k)
 {
     if(!head)return -1;
-    Node* dummy= new Node(0);
-    Node *kth= dummy, *curr= head;
+    Node *kth , *curr= head;
     while(--k && curr!=NULL)
     {
         curr=curr->next;
