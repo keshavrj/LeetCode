@@ -13,19 +13,11 @@ using namespace std;
 class Solution{
   public:
     int MissingNumber(vector<int>& arr, int n) {
-        // Your code goes here
-        for(int i=0;i<n-1;i++)
-        {
-            int index= abs(arr[i]);
-            if(index==n)continue;
-            else arr[index-1]*=-1;
-        }
-        for(int i=0;i<n-1;i++)
-        {
-            if(arr[i]>0)
-                return i+1;
-        }
-        return n;
+    
+        long long total= ((long long)n*(n+1))/2LL;
+        long long sm= accumulate(arr.begin(), arr.end(),0LL);
+        return (int)(total- sm);
+        
     }
 };
 
