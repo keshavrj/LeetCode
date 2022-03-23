@@ -12,7 +12,7 @@ class Solution {
     int getMinDiff(int arr[], int n, int k) {
         sort(arr, arr+n);
         int ans= arr[n-1]-arr[0];
-        for(int i=1;i<n;i++)
+        for(int i=0;i<n;i++)
         {
             
            int mx= max(arr[i-1]+k, arr[n-1]-k);
