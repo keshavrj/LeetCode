@@ -4,7 +4,7 @@ public:
        int ans=0;
        while(target>startValue)
        {
-           target= (target&1 ? target+1 : target/2);
+           target= (target&1 ? target+1 : target>>1);
            ans++;
        }
         
