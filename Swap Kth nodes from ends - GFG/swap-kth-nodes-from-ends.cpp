@@ -92,8 +92,8 @@ void swapNode(Node* preva, Node* a, Node* prevb, Node* b) {
          b->next = a->next;
          a->next = b;
          
-     } else {
-         
+     } 
+     else {
          Node* aNext = a->next;
          preva->next = b;
          prevb->next = a;
