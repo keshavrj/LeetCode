@@ -14,8 +14,7 @@ class Solution {
         int ans= arr[n-1]-arr[0];
         for(int i=1;i<n;i++)
         {
-            // int b=  (arr[n-1]-k >0) ? arr[n-1]- k : arr[n-1];
-            // int c= (arr[i]-k > 0)?arr[i]-k : arr[i];
+            
            int mx= max(arr[i-1]+k, arr[n-1]-k);
            int mn= min(arr[0]+k, arr[i]-k);
            if(mn<0)continue;
