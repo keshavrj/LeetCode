@@ -11,20 +11,21 @@ using namespace std;
 class Solution{
     //Function to find the leaders in the array.
     public:
-    vector<int> leaders(int arr[], int n){
+    vector<int> leaders(int a[], int n){
         // Code here
-        int mx= arr[n-1];
-        vector<int> ans={arr[n-1]};
+        vector<int> ans;
+        int mx= a[n-1];
+        ans.push_back(mx);
         for(int i=n-2;i>=0;i--)
         {
-            if(arr[i]>=mx)
+            if(a[i]>=mx)
                 {
-                    ans.push_back(arr[i]);
-                    mx= arr[i];
+                    ans.push_back(a[i]);
+                    mx= a[i];
                 }
         }
         reverse(ans.begin(), ans.end());
-        return ans;
+    return ans;
         
     }
 };
