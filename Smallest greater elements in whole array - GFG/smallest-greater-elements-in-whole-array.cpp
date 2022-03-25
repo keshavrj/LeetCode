@@ -33,7 +33,7 @@ int main()
 
 int find_Next(vector<int> &arr, int k)
 {
-    if(k==arr.back())return -1;
+    // if(k==arr.back())return -1;
  int l=0, r=arr.size()-1;
  while(l<=r)
  {
@@ -42,7 +42,7 @@ int find_Next(vector<int> &arr, int k)
         l= mid+1;
      else r= mid-1;
  }
- return l;
+ return l==arr.size() ? -1 : l;
     
 }
 int* greaterElement(int arr[], int n)
