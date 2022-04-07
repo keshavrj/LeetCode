@@ -102,11 +102,7 @@ class Solution
         int l= solve(root->left,  flag);
         int r= solve(root->right, flag);
         if(root->data!=l+r)
-        {
             flag=0;
-            
-        }
-        // sum+=l+r;
         return root->data+l+r;
         
         
