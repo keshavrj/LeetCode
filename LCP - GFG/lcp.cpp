@@ -10,10 +10,10 @@ class Solution{
 public:
     string LCP(string ar[], int n)
     {
-        sort(ar,ar+n, [](string &a, string &b)
-        {
-            return a.length()<=b.length();
-        });
+        // sort(ar,ar+n, [](string &a, string &b)
+        // {
+        //     return a.length()<=b.length();
+        // });
         int j=ar[0].size();
         for(int i=1;i<n;i++)
         {
