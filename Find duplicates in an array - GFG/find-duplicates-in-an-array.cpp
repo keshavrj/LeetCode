@@ -15,8 +15,8 @@ class Solution{
     {
         if(arr[i]/n>1)ans.push_back(i);
     }
-    if(ans.size()==0)return {-1};
-    return ans;//.size()==0 ? (vector<int>){-1} : arr;
+    // if(ans.size()==0)return {-1};
+    return ans.size()==0 ? (vector<int>){-1} : ans;
         
         
     }
