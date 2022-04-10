@@ -14,11 +14,7 @@ public:
 	string printLargest(vector<string> &arr) {
 	
 	        string ans="";
-	        sort(arr.begin(), arr.end(), [](string &a, string &b)
-	        {
-	            return (a+b)>(b+a);
-	        }
-	        );
+	        sort(arr.begin(), arr.end(), [](string &a, string &b){return (a+b)>(b+a);});
 	        
 	        for(auto i:arr)ans+=i;
 	       return ans;
