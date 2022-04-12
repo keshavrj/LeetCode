@@ -18,7 +18,7 @@ class Solution:
         for i in range(1, N+1):
             if dp[i]: cnt+=1
             if check(dp,i):
-                dp[i]=True
+                # dp[i]=True
                 cnt+=1
         return cnt
                 
