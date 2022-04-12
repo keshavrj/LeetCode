@@ -12,7 +12,7 @@ class Node:
 # Note: You required to print a new line after every test case
 def countLeaves(root):
     # Code here
-    if root==None:
+    if not root:
         return 0
     if root.left==None and root.right==None:
         return 1
