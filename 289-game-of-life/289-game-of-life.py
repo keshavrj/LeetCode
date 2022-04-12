@@ -18,7 +18,7 @@ class Solution:
                     if isValid(i+dx[k], j+dy[k], n, m) and arr[i+dx[k]][j+dy[k]]>0:
                         cnt+=1
                 # print(cnt)
-                if arr[i][j]==1 and (cnt<2 or cnt>3):
+                if arr[i][j] and (cnt<2 or cnt>3):
                     arr[i][j]=2;
                 elif arr[i][j]==0 and cnt==3:
                     arr[i][j]=-1
