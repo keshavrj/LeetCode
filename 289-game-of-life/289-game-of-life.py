@@ -15,7 +15,7 @@ class Solution:
             for j in range(m):
                 cnt=0
                 for k in range(8):
-                    if isValid(i+dx[k], j+dy[k], n, m)==True and arr[i+dx[k]][j+dy[k]]>0:
+                    if isValid(i+dx[k], j+dy[k], n, m) and arr[i+dx[k]][j+dy[k]]>0:
                         cnt+=1
                 # print(cnt)
                 if arr[i][j]==1 and (cnt<2 or cnt>3):
