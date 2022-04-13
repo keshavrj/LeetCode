@@ -101,28 +101,26 @@ class Solution
 {
     public:
     //Function to find the vertical order traversal of Binary Tree.
-       map<int,map<int,vector<int>> > my_map;
-    void solve(Node* root, int x, int y){
-        if(!root)
-            return;
-        my_map[x][y].push_back(root->data);
-        solve(root->left, x-1, y+1);
-        solve(root->right,x+1, y+1);
+    map<int,map<int,vector<int>>> mp;
+    void solve(Node *node, int x, int y)
+    {
+        if(!node)return;
+        mp[x][y].push_back(node->data);
+        solve(node->left, x-1, y+1);
+        solve(node->right, x+1, y+1);
     }
     vector<int> verticalOrder(Node *root)
     {
-        solve(root, 0, 0);
+        solve(root, 0,0);
         vector<int> ans;
-        for(auto m1:my_map)
+        for(auto m1:mp)
         {
-            // vector<int> t;
             for(auto m2:m1.second)
-                ans.insert(ans.end(), m2.second.begin(), m2.second.end());
-            // ans.push_back(t);
+            {
+                ans.insert(ans.end(),m2.second.begin(),m2.second.end());
+            }
         }
         return ans;
-
-
     }
 };
 
