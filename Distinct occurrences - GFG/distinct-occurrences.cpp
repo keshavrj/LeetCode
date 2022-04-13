@@ -20,12 +20,12 @@ class Solution
         
         if(S[n-1]==T[m-1])
              {
-                 dp[n][m]= solve(S,T,n-1,m-1)+solve(S,T,n-1,m);
-                return dp[n][m]%=mod;
+                 return dp[n][m]= (solve(S,T,n-1,m-1)+solve(S,T,n-1,m) )%mod;
+                // return dp[n][m]%=mod;
                  
              }
-        dp[n][m]= solve(S,T,n-1,m);
-        return dp[n][m]%=mod;
+        return dp[n][m]= solve(S,T,n-1,m)%mod;
+        // return dp[n][m]%=mod;
         
     }
     int subsequenceCount(string S, string T)
