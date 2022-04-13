@@ -123,8 +123,8 @@ public:
         ans.push_back(root->data);
         return;
         }
-             leafPart(root->left, ans);
-    
+        
+        leafPart(root->left, ans);
         leafPart(root->right, ans);
     }
     void rightPart(Node *root, vector<int> &ans)
@@ -136,7 +136,6 @@ public:
         else rightPart(root->left, ans);
         
         ans.push_back(root->data);
-        
     }
     vector <int> boundary(Node *root)
     {
