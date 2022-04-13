@@ -17,16 +17,9 @@ class Solution
         if(m==0)return 1LL;
         if(n==0)return 0LL;
         if(dp[n][m]!=-1)return dp[n][m];
-        
         if(S[n-1]==T[m-1])
-             {
-                 return dp[n][m]= (solve(S,T,n-1,m-1)+solve(S,T,n-1,m) )%mod;
-                // return dp[n][m]%=mod;
-                 
-             }
+            return dp[n][m]= (solve(S,T,n-1,m-1)+solve(S,T,n-1,m) )%mod;
         return dp[n][m]= solve(S,T,n-1,m)%mod;
-        // return dp[n][m]%=mod;
-        
     }
     int subsequenceCount(string S, string T)
     {
