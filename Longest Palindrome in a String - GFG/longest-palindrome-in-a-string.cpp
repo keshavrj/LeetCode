@@ -12,7 +12,7 @@ class Solution {
         if(n<2)return s;
         string ans= "";
         ans+=s[0];
-        int low, high, max_length=1, start_index=0;
+        int low, high, max_length=1;
         for(int i=1;i<n-1;i++)
         {
             low= i-1, high= i+1;
@@ -27,7 +27,6 @@ class Solution {
             if(length>max_length)
             {
                 max_length= length;
-                // start_index=low+1;
                 ans= s.substr(low+1,length);
             }
             
