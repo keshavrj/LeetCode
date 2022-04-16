@@ -9,21 +9,22 @@ using namespace std;
 
 class Solution{   
 public:
-    int dp[502][502];
-    int solve(string &s1, string &s2, int n, int m)
+    int dp[501][501];
+    int solve(string &a, string &b, int n, int m)
     {
-        if(!n or !m)return 0;
+        if(n==0 || m==0)return 0;
         if(dp[n][m]!=-1)return dp[n][m];
-        if(s1[n-1]==s2[m-1])
-            return dp[n][m]= 1+ solve(s1, s2, n-1, m-1);
-        return dp[n][m]= max(solve(s1,s2, n-1, m), solve(s1,s2,n, m-1));
-        
+        if(a[n-1]==b[m-1])
+            return dp[n][m]=1+solve(a,b,n-1,m-1); 
+        return dp[n][m]= max(solve(a,b,n-1,m), solve(a,b,n,m-1));
+
     }
-    int findMinInsertions(string s1){
-        string s2= s1;
-        memset(dp, -1, sizeof dp);
-        reverse(s2.begin(), s2.end());
-        return s1.size()- solve(s1,s2,s1.size(), s1.size());
+    int findMinInsertions(string S1){
+        string S2= S1;
+        reverse(S2.begin(), S2.end());
+        int n= (int)S1.length();
+        memset(dp,-1,sizeof dp);
+        return n-solve(S1,S2,n,n);
     }
 };
 
