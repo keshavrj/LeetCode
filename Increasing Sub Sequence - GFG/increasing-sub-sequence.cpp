@@ -7,18 +7,19 @@ class Solution{
 public:
     int maxLength(string s)
     {
-       vector<int> seq;
-       seq.push_back(s[0]);
-       for(int i=1;i<s.size();i++)
-       {
-           if(s[i]>seq.back())seq.push_back(s[i]);
-           else{
-               
-               int j= lower_bound(seq.begin(), seq.end(), s[i])- seq.begin();
-               seq[j]=s[i];
-           }
-       }
-       return seq.size();
+        vector<int> dp;
+        dp.push_back(s[0]-'a'+1);
+        for(int i=1;i<s.size();i++)
+        {
+            if((s[i]-'a'+1)>dp.back())
+                dp.push_back(s[i]-'a'+1);
+            else{
+                int index= lower_bound(dp.begin(), dp.end(),s[i]-'a'+1)-dp.begin();
+                dp[index]= s[i]-'a'+1;
+            }
+            
+        }
+        return dp.size();
     }
 };
 
