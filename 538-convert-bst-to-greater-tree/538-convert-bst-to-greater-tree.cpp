@@ -13,7 +13,7 @@ class Solution {
 public:
     int sum=0;
     TreeNode* convertBST(TreeNode* root) {
-        if(!root)return 0;
+        if(!root)return NULL;
         convertBST(root->right);
         sum= root->val= sum + root->val;
         convertBST(root->left);
