@@ -29,19 +29,21 @@ class Solution
         });
         
         double ans=0;
-        for(int i=0;i<n;i++)
+        int i;
+        for(i=0;i<n;i++)
         {
             if(arr[i].weight<=W)
             {
                 W-=arr[i].weight;
                 ans+=arr[i].value;
             }
-            else {
+            else
+                break;
+        }
+                if(i<n){
                 double p= (double)arr[i].value/arr[i].weight;
                 ans+=(W*p);
-                break;
-            }
-        }
+                }
         return ans;
     }
         
