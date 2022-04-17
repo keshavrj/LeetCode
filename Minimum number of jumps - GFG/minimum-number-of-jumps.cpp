@@ -17,13 +17,20 @@ class Solution{
         {
             if(i==n-1)return cnt;
             steps--;
-            max_jump= max(max_jump, i+arr[i]);
+            max_jump= max(max_jump-1,arr[i]);
             if(steps==0)
             {
                 cnt++;
-                if(i>=max_jump)return -1;
-                steps= max_jump-i;
+                if(max_jump==0)return -1;
+                steps= max(steps, max_jump);
             }
+            // max_jump= max(max_jump, i+arr[i]);
+            // if(steps==0)
+            // {
+            //     cnt++;
+            //     if(i>=max_jump)return -1;
+            //     steps= max_jump-i;
+            // }
         }
         
         
