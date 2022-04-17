@@ -24,13 +24,6 @@ class Solution{
                 if(max_jump==0)return -1;
                 steps= max(steps, max_jump);
             }
-            // max_jump= max(max_jump, i+arr[i]);
-            // if(steps==0)
-            // {
-            //     cnt++;
-            //     if(i>=max_jump)return -1;
-            //     steps= max_jump-i;
-            // }
         }
         
         
