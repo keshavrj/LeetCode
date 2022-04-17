@@ -9,24 +9,25 @@ using namespace std;
 class Solution{
   public:
     int minJumps(int arr[], int n){
-        if(n<=1)return 0;
+        if(n<2)return 0;
         if(arr[0]==0)return -1;
-        int jumps=1;
-        for(int i=1, mx= arr[0], steps= arr[0];i<n;i++)
+        int cnt=1;
+        int max_jump=arr[0];
+        for(int i=1, steps=arr[0];i<n;i++)
         {
-            if(i==n-1)
-                return jumps;
-            mx= max(mx, i+arr[i]);
+            if(i==n-1)return cnt;
             steps--;
+            max_jump= max(max_jump, i+arr[i]);
             if(steps==0)
             {
-                jumps++;
-                if(i>=mx)return -1;
-                steps= mx-i;
-                
+                cnt++;
+                if(i>=max_jump)return -1;
+                steps= max_jump-i;
             }
         }
-        return -1;
+        
+        
+        return cnt;
     }
 };
 
