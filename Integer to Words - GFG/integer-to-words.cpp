@@ -16,17 +16,16 @@ public:
                  "sixteen ", "seventeen ", "eighteen ",
                  "nineteen " };
       
-      string tens[10] = { "", "", "twenty ", "thirty ", "forty ",
+      string tens[10] = {"", "", "twenty ", "thirty ", "forty ",
                  "fifty ", "sixty ", "seventy ", "eighty ",
                  "ninety " };
     string fun(int n, string s)
     {
-        if(!n)return "";
-        // string ans="";
+        if(n==0)
+            return "";
         if(n>19)
             return tens[n/10]+ones[n%10]+s;
-    
-        return ones[n]+s;
+        return ones[n] + s;
     }
     string convertToWords(long n) {
         string ans="";
