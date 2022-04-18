@@ -12,7 +12,7 @@ class Solution {
     long long karyTree(long long int k, long long int m) {
     int mod= 1e9+7;
     long long ans=1ll;
-    k%=mod;
+    // k%=mod;
     while(m)
     {
         if(m&1)
