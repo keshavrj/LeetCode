@@ -12,7 +12,7 @@ class Solution{
 	    if(sum==0)return 0;
 	    if(n==0)return inf;
 	    if(dp[n][sum]!=-1)return dp[n][sum];
-	    dp[n][sum]=inf;
+	   // dp[n][sum]=inf;
 	    if(arr[n-1]<=sum)
 	     return dp[n][sum]= min(1+solve(arr, n,sum-arr[n-1], dp), solve(arr, n-1,sum, dp));
 	    return dp[n][sum] = solve(arr, n-1, sum, dp);
