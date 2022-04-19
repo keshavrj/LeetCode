@@ -14,7 +14,7 @@ class Solution{
 	    if(n==0)return 0;
 	    if(dp[n]!=-1)return dp[n];
 	    int ans= INT_MAX;
-	    for(int i=1;i<=sqrt(n);i++)
+	    for(int i=sqrt(n);i>=1;i--)
 	        ans = min(ans, 1+solve(n-i*i, dp));
 	        
 	    return dp[n]=ans;
