@@ -20,8 +20,10 @@ public:
         else {
             if(first==NULL && prev->val >= root->val)   first=prev;
             if(first!=NULL && prev->val >= root->val)   second=root;
-        }
+        
+        
         prev=root;
+        }
         Inorder(root->right);
     }
     void recoverTree(TreeNode* root) {
