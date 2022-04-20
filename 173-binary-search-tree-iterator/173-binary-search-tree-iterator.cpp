@@ -11,24 +11,25 @@
  */
 class BSTIterator {
 public:
-    stack<TreeNode*> st;
+    stack<TreeNode*> st; 
     BSTIterator(TreeNode* root) {
         findLeft(root);
     }
-    
+    void findLeft(TreeNode* root)
+    {
+        for(auto it=root;it!=NULL;it=it->left)
+            st.push(it);
+    }
     int next() {
-        auto curr= st.top();st.pop();
-        if(curr->right)findLeft(curr->right);
-        return curr->val;
+        auto t = st.top();st.pop();
+        if(t->right){
+            findLeft(t->right);
+        }
+        return t->val;
     }
     
     bool hasNext() {
         return !st.empty();
-    }
-    void findLeft(TreeNode* root)
-    {
-        auto p= root;
-        for(;p!=NULL;p=p->left)st.push(p);
     }
 };
 
