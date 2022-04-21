@@ -10,7 +10,7 @@ using namespace std;
 class Solution{
 public:
     string remove(string s){
-        int n= s.size();
+ int n= s.size();
         if(n==0)return s;
         int i, k=0;
         for(i=1;i<n;i++)
