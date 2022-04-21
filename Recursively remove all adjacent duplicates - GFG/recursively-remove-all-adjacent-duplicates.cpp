@@ -26,7 +26,7 @@ public:
         {
             return remove(s.substr(0,k));    
         }
-        return s.substr(0,k);
+        return s;
     }
 };
 
