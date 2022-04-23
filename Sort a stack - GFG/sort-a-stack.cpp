@@ -52,9 +52,9 @@ you are required to complete the below method */
 void SortedStack :: sort()
 {
     stack<int> st;
-    if(s.empty())return;
     while(!s.empty()){
-        int t= s.top();s.pop();
+        int t= s.top();
+        s.pop();
         if(st.empty() or st.top()>=t)
             st.push(t);
         else{
