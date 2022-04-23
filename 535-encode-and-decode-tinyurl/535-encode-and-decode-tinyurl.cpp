@@ -3,7 +3,7 @@ public:
 
     // Encodes a URL to a shortened URL.
     const string c= "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    unordered_map<string,string> l2s, db;
+    unordered_map<string,string> l2s, s2l;
     string create_code(){
         string code="";
         for(int i=0;i<6;i++)
@@ -16,16 +16,16 @@ public:
         if(l2s.find(longUrl)!=l2s.end())
             return l2s[longUrl];
         string c= create_code();
-        while(db.find(c)!=db.end())
+        while(s2l.find(c)!=s2l.end())
             c= create_code();
         l2s[longUrl]=c;
-        db[c]=longUrl;
+        s2l[c]=longUrl;
         return c;
     }
 
     // Decodes a shortened URL to its original URL.
     string decode(string shortUrl) {
-        return db[shortUrl];
+        return s2l[shortUrl];
     }
 };
 
