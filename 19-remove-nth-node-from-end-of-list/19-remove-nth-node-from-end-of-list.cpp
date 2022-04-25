@@ -20,7 +20,9 @@ public:
             p=p->next;
             q=q->next;
         }
+        auto x= q->next;
         q->next= q->next->next;
+        delete(x);
         return head;
     }
 };
