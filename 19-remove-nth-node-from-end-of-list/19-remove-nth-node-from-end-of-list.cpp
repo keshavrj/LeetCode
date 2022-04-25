@@ -15,8 +15,8 @@ public:
         while(n--)
             p=p->next;
         if(!p)return head->next;
-        p=p->next;
-        while(p)
+        // p=p->next;
+        while(p->next)
         {
             p=p->next;
             q=q->next;
