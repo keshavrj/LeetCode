@@ -6,7 +6,7 @@ public:
         priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>> > pq;
         pq.push({0,0}); //i,j;
         cost[0][0]= 0;
-        //Djikstra
+        //Dijkstra
         int dir[5]= { -1, 0, 1, 0, -1};
         while(!pq.empty())
         {
@@ -26,13 +26,11 @@ public:
                             cost[X][Y]= new_eff;
                             pq.push({X,Y});
                         }
-                
                 }
             }
                 
             
         }
         return cost[n-1][m-1];
-        
     }
 };
