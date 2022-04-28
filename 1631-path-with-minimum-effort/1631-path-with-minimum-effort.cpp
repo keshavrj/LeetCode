@@ -1,7 +1,7 @@
 class Solution {
 public:
     int minimumEffortPath(vector<vector<int>>& h) {
-        int n = (int)(h.size()), m= (int)(h[0].size()); 
+        int n = h.size(), m= h[0].size(); 
         vector<vector<int>> cost(n,vector<int> (m,INT_MAX));
         priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>> > pq;
         pq.push({0,0}); //i,j;
