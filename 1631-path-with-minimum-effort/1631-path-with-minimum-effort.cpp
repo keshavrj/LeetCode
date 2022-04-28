@@ -14,28 +14,21 @@ public:
             pq.pop();
             if(i==n-1 && j==m-1)
                 return cost[n-1][m-1];
-           for (int d = 0; d < 4; ++d) {
-           int x = i + dir[d], y = j + dir[d + 1];
-           if (x >= 0 && y >= 0 && x < n && y < m) {
-               int new_eff = max(cost[i][j], abs(h[i][j] - h[x][y]));
-               if (new_eff < cost[x][y]) {
-                   cost[x][y] = new_eff;
-                   pq.push({x, y, new_eff});
-               }
-           }
-        }
-            // for(int d=0;d<4;d++)
-            // {
-            //     int X = i+dir[d], Y= j+dir[d+1];
-            //     if(X>=0 && X<n && Y>=0 && Y<n)
-            //     {
-            //         int new_eff= max(cost[i][j], abs(h[i][j]-h[X][Y]));
-            //             if(new_eff<cost[X][Y])
-            //             {
-            //                 cost[X][Y]= new_eff;
-            //                 pq.push({X,Y,new_eff});
-            //             }
-            //     }
+      
+            for(int d=0;d<4;d++)
+            {
+                int X = i+dir[d], Y= j+dir[d+1];
+                if(X>=0 && X<n && Y>=0 && Y<m)
+                {
+                    int new_eff= max(cost[i][j], abs(h[i][j]-h[X][Y]));
+                        if(new_eff<cost[X][Y])
+                        {
+                            cost[X][Y]= new_eff;
+                            pq.push({X,Y,new_eff});
+                        }
+                
+                }
+            }
                 
             
         }
