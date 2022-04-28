@@ -14,7 +14,7 @@ public:
             pq.pop();
             if(i==n-1 && j==m-1)
                 return cost[n-1][m-1];
-             for (auto d = 0; d < 4; ++d) {
+           for (int d = 0; d < 4; ++d) {
            int x = i + dir[d], y = j + dir[d + 1];
            if (x >= 0 && y >= 0 && x < n && y < m) {
                int new_eff = max(cost[i][j], abs(h[i][j] - h[x][y]));
