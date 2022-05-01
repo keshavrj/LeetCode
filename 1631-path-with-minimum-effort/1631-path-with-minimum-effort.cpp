@@ -1,6 +1,6 @@
 class Solution {
 public:
-   int a[4][2]={{1,0},{-1,0},{0,1},{0,-1}};
+   int a[4][2]={{1,0},{0,1},{0,-1},{-1,0}};
 
 int minimumEffortPath(vector<vector<int>>& hts) {
     
