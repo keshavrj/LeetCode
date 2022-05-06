@@ -12,8 +12,6 @@ public:
             
             if(st.top().second==k)
                 st.pop();
-            // if(!st.empty())cout<<st.size()<<st.top().first<<st.top().second<<endl;
-            // else cout<<"empty"<<endl;
         }
         s="";
         while(!st.empty())
