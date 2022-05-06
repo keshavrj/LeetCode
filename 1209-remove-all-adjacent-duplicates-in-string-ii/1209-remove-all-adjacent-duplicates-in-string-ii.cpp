@@ -7,7 +7,7 @@ public:
             
             if(st.empty() or st.top().first!=i)
                 st.push({i,1});
-            else if(!st.empty() && st.top().first==i)
+            else 
                 st.top().second++;
             
             if(st.top().second==k)
