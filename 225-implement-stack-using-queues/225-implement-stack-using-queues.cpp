@@ -1,9 +1,7 @@
 class MyStack {
 public:
     queue<int> q1,q2;
-    int sz;
     MyStack() {
-        sz=0;
     }
     
     void push(int x) {
