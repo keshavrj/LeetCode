@@ -19,7 +19,7 @@
 class NestedIterator {
 public:
     queue<int> q;
-    void solve(vector<NestedInteger> nestedList)
+    void solve(vector<NestedInteger> &nestedList)
     {
         int n= nestedList.size();
         for(int i=0;i<n;i++)
