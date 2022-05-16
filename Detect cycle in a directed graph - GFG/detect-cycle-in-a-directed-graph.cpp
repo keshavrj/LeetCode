@@ -29,7 +29,7 @@ class Solution {
                 in_degree[x]++;
         queue<int> q;
         for(int i=0;i<V;i++)if(in_degree[i]==0)q.push(i);
-        int cnt=1;
+        int cnt=q.size();
         while(!q.empty())
         {
             int u= q.front();q.pop();
