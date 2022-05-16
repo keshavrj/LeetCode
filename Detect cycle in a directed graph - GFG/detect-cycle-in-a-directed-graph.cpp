@@ -29,15 +29,16 @@ class Solution {
                 in_degree[x]++;
         queue<int> q;
         for(int i=0;i<V;i++)if(in_degree[i]==0)q.push(i);
-        int cnt=q.size();
+        int cnt=0;
         while(!q.empty())
         {
-            int u= q.front();q.pop();
+            int u= q.front();
+            q.pop();
+            cnt++;
             for(int x:adj[u])
-            if(--in_degree[x]==0){
-                q.push(x);
-                cnt++;
-            }
+                if(--in_degree[x]==0){
+                    q.push(x);
+                }
         }
         return cnt!=V;
         
