@@ -6,27 +6,44 @@ using namespace std;
 class Solution {
   public:
     // Function to detect cycle in a directed graph.
-    int vis[100004];
+    int vis[100005];
     bool dfs(int node, vector<int> adj[])
     {
-        vis[node]=1;
-        for(int child:adj[node])
-        {
-            if(!vis[child]){if( dfs(child, adj))return true;}
-            else if(vis[child]==1)return true;
-        }
-        vis[node]= 2; //It represents that the current node is no longer under execution 
-                        //and there is no cycle through it.
-        return false;
-    }
-    bool isCyclic(int V, vector<int> adj[]) {
-        memset(vis,0, sizeof vis);
-       for(int i=0;i<V;i++)
+        vis[node]= 1;
+        for(int i:adj[node])
         {
             if(!vis[i])
-                if(dfs(i, adj))return true;
+            {
+                if(dfs(i,adj))return true;
+            }
+            if(vis[i]==1)return true;
         }
+        vis[node]=2;
         return false;
+    }
+    bool bfs(int V, vector<int> adj[])
+    {
+        vector<int> in_degree(V,0);
+        for(int i=0;i<V;i++)
+            for(auto x:adj[i])
+                in_degree[x]++;
+        queue<int> q;
+        for(int i=0;i<V;i++)if(in_degree[i]==0)q.push(i);
+        int cnt=1;
+        while(!q.empty())
+        {
+            int u= q.front();q.pop();
+            for(int x:adj[u])
+            if(--in_degree[x]==0){
+                q.push(x);
+                cnt++;
+            }
+        }
+        return cnt!=V;
+        
+    }
+    bool isCyclic(int V, vector<int> adj[]) {
+        return bfs(V,adj);
     }
 };
 
