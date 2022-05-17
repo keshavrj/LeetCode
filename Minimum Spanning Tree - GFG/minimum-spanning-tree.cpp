@@ -19,7 +19,6 @@ class Solution
         pq.push({0,0}); //dist, node;
         key[0]=0;
 
-        // for(int i=0;i<n-1;i++)
         while(!pq.empty())
         {
             int u= pq.top().second;
