@@ -9,33 +9,50 @@ class Solution
 {
 	public:
 	//Function to find sum of weights of edges of the Minimum Spanning Tree.
+    int findpar(int x, vector<int> &parent){
+        if(x== parent[x])return x;
+        return parent[x]= findpar(parent[x], parent);
+    }
+    void unionn(int x, int y, vector<int> &parent, vector<int> &rank){
+        int u= findpar(x,parent);
+        int v= findpar(y,parent);
+        if(rank[u]<rank[v])parent[u]=v;
+        else if(rank[v]<rank[u])parent[v]=u;
+        else{
+            parent[v]=u;
+            rank[u]++;
+        }
+    }
     int spanningTree(int n, vector<vector<int>> adj[])
     {
-        vector<bool> vis(n,0);
-        int ans=0;
-        vector<int> key(n,INT_MAX);
+        // kruskals;
+        vector<int> parent(n), rank(n,0);
+        for(int i=0;i<n;i++)parent[i]=i;
+        int cost=0;
         using pii = pair<int,int> ;
-        priority_queue<pii,vector<pii>,greater<pii>> pq;
-        pq.push({0,0}); //dist, node;
-        key[0]=0;
-
-        while(!pq.empty())
+        priority_queue<pair<int,pii>, vector<pair<int,pii>>, greater<pair<int,pii>>> pq;
+        for(int i=0;i<n;i++)
         {
-            int u= pq.top().second;
-            pq.pop();
-            vis[u]=true;
-            for(auto x:adj[u]){
-                int v= x[0];
-                int w= x[1];
-                if(vis[v]==0 and w<key[v]){
-                    pq.push({w,v});
-                    key[v]=w;
-                }
+            for(auto &x:adj[i])
+            {
+                int node= x[0];
+                int wt=x[1];
+                pq.push({wt,{i,node}});
+                
             }
         }
-        ans= accumulate(key.begin(),key.end(),0);
-        return ans;
-        
+        while(!pq.empty())
+        {
+            auto x= pq.top();pq.pop();
+            int w= x.first;
+            int u= x.second.first;
+            int v= x.second.second;
+            if(findpar(u,parent)!=findpar(v,parent)){
+                    unionn(u,v,parent,rank);
+                    cost+=w;
+            }
+        }
+        return cost;
     }
 };
 
