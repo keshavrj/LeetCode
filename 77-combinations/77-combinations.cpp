@@ -1,7 +1,7 @@
 class Solution {
 public:
     void solve(int n, int k, int curr, vector<int> &t, vector<vector<int>> &ans){
-        if(k==0)
+        if(t.size()==k)
         {
             ans.push_back(t);
             return;
@@ -9,7 +9,7 @@ public:
         for(int i=curr;i<=n;i++)
         {
             t.push_back(i);
-            solve(n,k-1,i+1,t,ans);
+            solve(n,k,i+1,t,ans);
             t.pop_back();
         }
     }
