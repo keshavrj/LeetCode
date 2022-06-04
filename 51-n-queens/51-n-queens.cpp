@@ -2,29 +2,29 @@ class Solution {
 public:
     bool isValid(int row, int col, vector<string> &q){
         //checking cols;
-        for(int i=row;i>=0;i--)
-            if(q[i][col] == 'Q') return false;
+        for(int i=col;i>=0;i--)
+            if(q[row][i] == 'Q') return false;
         
         // check left diagonal
         for(int i=row,j=col;i>=0&&j>=0;i--,j--)
             if(q[i][j] == 'Q') return false;
         
         //check right diagonal
-        for(int i=row,j=col;i>=0 && j<q.size();--i,++j)
+        for(int i=row,j=col;i<q.size() && j>=0;i++,--j)
             if(q[i][j] == 'Q') return false;
         
         return true;
     }
-    void solve(vector<vector<string>> &ans, vector<string> &q, int row, int n){
-        if(row==n){
+    void solve(vector<vector<string>> &ans, vector<string> &q, int col, int n){
+        if(col==n){
             ans.push_back(q);
             return;
         }
-        for(int col=0;col<n;col++)
+        for(int row=0;row<n;row++)
         {
             if(isValid(row,col,q)){
                 q[row][col]='Q';
-                solve(ans,q,row+1,n);
+                solve(ans,q,col+1,n);
                  q[row][col]='.';
             }
         }
