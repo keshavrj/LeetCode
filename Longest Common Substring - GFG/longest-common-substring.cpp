@@ -19,8 +19,8 @@ class Solution{
                 {
                     dp[i][j]= 1+dp[i-1][j-1];
                 }
-                // else dp[i][j]=0;
-            ans= max(ans, dp[i][j]);
+                else dp[i][j]=0;
+                ans= max(ans, dp[i][j]);
             }
         }
         return ans;
