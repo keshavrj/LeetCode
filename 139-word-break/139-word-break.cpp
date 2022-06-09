@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool wordBreak(string s, vector<string>& dict) {
-        vector<bool> dp(s.size()+1, false);
+        vector<bool> dp(s.size()+1, false); //valid string ending at index i;
         dp[0]=true;
         for(int i=1;i<=s.size();i++)
         {
