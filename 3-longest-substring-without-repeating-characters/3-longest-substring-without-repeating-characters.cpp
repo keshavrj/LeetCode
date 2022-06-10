@@ -10,7 +10,7 @@ public:
                 l=max(mp[s[i]]+1,l);
 
             mp[s[i]]=i;
-            ans= max(ans, i - l+1);
+            ans= max(ans, i-l+1);
         }
         return ans;
     }
