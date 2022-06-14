@@ -4,7 +4,7 @@ public:
     int solve(string &s1, string &s2, int n, int m)
     {
         if(n==0 || m==0)
-            return max(n,m);
+            return dp[n][m]= max(n,m);
         if(dp[n][m]!=-1)
             return dp[n][m];
         if(s1[n-1]==s2[m-1])
