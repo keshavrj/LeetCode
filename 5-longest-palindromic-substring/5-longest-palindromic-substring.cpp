@@ -6,7 +6,7 @@ public:
         memset(dp, 0, sizeof dp);
         for(int i=0;i<=n;i++)
             dp[0][i]=dp[1][i]=1;
-        dp[1][0]=0; //INVALID
+        // dp[1][0]=0; //INVALID
         int len=1, end=1;
         for(int i=2;i<=n;i++)
         {
