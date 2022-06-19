@@ -19,15 +19,14 @@ public:
          //    }
          //     ans.push_back(res);
          // }
-        auto startIndex= arr.begin();
+        auto startIndex= 0;
         string prefix="";
         int n= arr.size();
         for(auto &c:word){
             prefix+=c;
-            startIndex= lower_bound(arr.begin(), arr.end(), prefix);
+            startIndex= lower_bound(arr.begin(), arr.end(), prefix)-arr.begin();
             vector<string> t;
-            int ind= startIndex-arr.begin();
-            for(int i=ind;i<min(ind+3, n);i++)
+            for(int i= startIndex;i<min(startIndex+3, n);i++)
             {
                 if(arr[i].find(prefix)!=-1)
                     t.push_back(arr[i]);
