@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool isValid(int x, int y, int n, int m){
+    bool isValid(int &x, int &y, int n, int m){
         return x>-1 && x<n && y>-1 && y<m;
     }
     int dfs(vector<vector<int>>& grid, int i, int j){
